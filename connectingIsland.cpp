@@ -3,7 +3,7 @@ using namespace std;
 
 int parent[101];
 int level[101];
-priority_queue<pair<int, pair<int, int>>> pq;
+priority_queue<pair<int, pair<int, int> > > pq;
 
 int find(int x) {
     if (x == parent[x]) {
@@ -21,7 +21,7 @@ void merge(int x, int y) {
     if (level[x] == level[y]) level[y]++;
 }
 
-int solution(int n, vector<vector<int>> costs) {
+int solution(int n, vector<vector<int> > costs) {
     int answer = 0;
     for (int i = 0; i < 101; i++) {
         level[i] = 1;

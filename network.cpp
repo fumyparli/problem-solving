@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> a(201, vector<int>(201));
+vector<vector<int> > a(201, vector<int>(201));
 int check[201];
 
 void dfs(int x) {
@@ -14,7 +14,7 @@ void dfs(int x) {
     }
 }
 
-int solution(int n, vector<vector<int>> computers) {
+int solution(int n, vector<vector<int> > computers) {
     int answer = 0;
     for (int i = 0; i < computers.size(); i++) {
         for (int j = 0; j < computers[i].size(); j++) {

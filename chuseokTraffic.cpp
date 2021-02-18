@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> v;
 vector<pair<int, int>> t;
 
 int solution(vector<string> lines) {

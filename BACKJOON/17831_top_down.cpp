@@ -6,16 +6,20 @@ vector<vector<int>> a(200001);
 int c[200001];
 int d[200001][2];
 
-void foo(int x, int prev) {
+int foo(int x, int prev, int p) {
+    if (a[x].size() == 0 && p == 0) return 0;
     int maxv = -inf;
-    for (auto& nx : a[x]) {
-        foo(nx, x);
-        d[x][1] += d[nx][0];
-        d[x][0] += d[nx][0];
-        if (maxv < d[nx][1] - d[nx][0]) maxv = d[nx][1] - d[nx][0];
+    if (d[x][p] != -1) return d[x][p];
+    d[x][p] = 0;
+    for (auto &nx : a[x]) {
+        int f0 = foo(nx, x, 0);
+        int f1 = foo(nx, x, 1);
+        d[x][p] += f0;
+        maxv = max(maxv, f1 - f0);
     }
-    d[x][1] += c[x] * c[prev];
-    if (maxv > 0) d[x][0] += maxv;
+    if (p == 1) return d[x][p] + c[x] * c[prev];
+    if (maxv > 0) d[x][p] += maxv;
+    return d[x][p];
 }
 
 int main() {
@@ -33,6 +37,6 @@ int main() {
         cin >> cost;
         c[i] = cost;
     }
-    foo(1, 0);
-    cout << max(d[1][0], d[1][1]);
+    memset(d, -1, sizeof(d));
+    cout << foo(1, 0, 0);
 }

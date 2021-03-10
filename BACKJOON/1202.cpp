@@ -2,7 +2,7 @@
 using namespace std;
 
 priority_queue<pair<int, int>> pq;
-multiset<int> se;
+multiset<int> se;  // 중복 허용해야 하니까 multiset 써야됨 주의
 
 int main() {
     ios_base::sync_with_stdio(0);

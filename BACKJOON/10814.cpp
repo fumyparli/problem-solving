@@ -9,7 +9,6 @@ int main() {
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {
-        int age, name;
         cin >> get<0>(a[i]) >> get<2>(a[i]);
         get<1>(a[i]) = i;
     }

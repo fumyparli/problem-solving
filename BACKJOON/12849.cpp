@@ -12,7 +12,7 @@ int main() {
     d[0][0] = 1;
     for (int i = 1; i <= n; i++)
         for (int j = 0; j < 8; j++)
-            for (int k = 0; k < a[j].size(); k++)
-                d[i][j] = (d[i][j] + d[i - 1][a[j][k]]) % 1000000007;
+            for (int nx : a[j])
+                d[i][j] = (d[i][j] + d[i - 1][nx]) % 1000000007;
     cout << d[n][0];
 }

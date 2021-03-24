@@ -39,7 +39,7 @@ int main() {
             if (0 <= nx && nx < n && 0 <= ny && ny < m) {
                 if (r.d + 1 < check[r.w][nx][ny]) {
                     if (a[nx][ny] == 1 && r.w < maxw) {
-                        check[r.w][nx][ny] = r.d + 1;
+                        check[r.w + 1][nx][ny] = r.d + 1;
                         q.push({nx, ny, r.d + 1, r.w + 1});
                     } else if (a[nx][ny] == 0) {
                         check[r.w][nx][ny] = r.d + 1;

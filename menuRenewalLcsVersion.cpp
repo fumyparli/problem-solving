@@ -7,6 +7,8 @@
 #include <vector>
 using namespace std;
 
+// not completed
+
 vector<string> orders;
 vector<int> course;
 

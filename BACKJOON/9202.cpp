@@ -19,6 +19,7 @@ int dfs(int x, int y, string &s, int i) {
         int ny = y + dy[k];
         if (0 <= nx && nx < 4 && 0 <= ny && ny < 4 && check[nx][ny] == 0 && a[nx][ny] == s[i + 1]) {
             tmp = max(tmp, dfs(nx, ny, s, i + 1));
+            check[nx][ny] = 0;
         }
     }
     return tmp;
@@ -49,10 +50,10 @@ int main() {
         }
         for (int k = 0; k < n; k++) {
             string s = ma[k];
-            memset(check, 0, sizeof(check));
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
-                    if (check[i][j] == 0 && a[i][j] == s[0]) {
+                    memset(check, 0, sizeof(check));
+                    if (s.size() != 0 && a[i][j] == s[0]) {
                         if (dfs(i, j, s, 0)) {
                             if (str_check.find(s) == str_check.end()) {
                                 str_check.insert(s);

@@ -7,7 +7,7 @@ int main() {
     int n, k;
     cin >> n >> k;
     string s;
-    cin >> s;  // 192457
+    cin >> s;  // 192457  574896
     int topick = n - k;
     int i = 0;
     string ans = "";

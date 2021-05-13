@@ -22,8 +22,9 @@ int main() {
         robot.push_front(0);
         a.push_front(a.back());
         a.pop_back();
+        robot[n - 1] = 0;
         for (int i = n - 2; i >= 0; i--) {
-            if (robot[i] == 1 && robot[i + 1] == 0 && a[i + 1] != 0) {
+            if (robot[i] == 1 && robot[i + 1] == 0 && a[i + 1] >= 1) {
                 robot[i + 1] = 1;
                 robot[i] = 0;
                 a[i + 1]--;
@@ -33,13 +34,13 @@ int main() {
             robot[0] = 1;
             a[0]--;
         }
-        int cnt2 = 0;
+        int zeroCnt = 0;
         for (int i = 0; i < n * 2; i++) {
             if (a[i] == 0) {
-                cnt2++;
+                zeroCnt++;
             }
         }
-        if (cnt2 >= k) {
+        if (zeroCnt >= k) {
             cout << cnt;
             return 0;
         }
